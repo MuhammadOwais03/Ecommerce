@@ -1,0 +1,38 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    .card:hover {
+        scale:1.1;
+        border: 1px solid red;
+        transition: all 0.7s ease;
+    }
+</style>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                {% for p in product %}
+                <div class="col-sm-6 col-md-4 col-lg-3 g-2">
+                    <div class="card p-2">
+                        <img src="{{p.image.url}}" class="card-img-top" alt="..." width="300px" height="250px">
+                        <div class="card-body">
+                            <h5 class="card-title "><p class="text-uppercase">{{p.name}}</p></h5>
+                            <div class="d-flex justify-content-evenly text-nowrap g-4 py-3">
+                                <a href="{% url 'addTocart' id=p.id %}" id="{{p.id}}" class="btn btn-sm  btn-primary " >Add To Cart</a>
+                                <a href="" class="btn btn-sm btn-success">View</a>
+                            </div>
+                            <div class="text-lg"><p class="lead">Price: {{p.price}}$</p></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+
+        </div>
+        <!-- Modal -->
+
+    </section>
+{% endblock %}

@@ -1,0 +1,253 @@
+body{
+    padding: 4rem;
+    padding-top: 0rem;
+    background-color: #ebefe2;
+}
+
+header {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+header>.navbar>nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+header>.navbar>nav>ul {
+    display: flex;
+    gap:2rem;
+}
+
+header>.navbar>nav>ul>li {
+    list-style: none;
+}
+
+header>.navbar>nav>ul>li>a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+}
+header>.navbar>nav>ul>li>a:any-link {
+    
+    color: white;
+    
+}
+
+
+
+#cart{
+    position: relative;
+    
+}
+#no {
+    position: absolute;
+    top: -20px;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    padding: 0.2rem;
+    font-size: 10px;
+   
+}
+
+.heading {
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.2rem;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.card {
+    
+    background-color: white;
+    box-shadow: 1px 1px #222;
+}
+
+.detail {
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btn {
+    display: flex;
+    gap: 1rem;
+}
+
+.card>h3 {
+    margin: 1rem;
+    text-transform: uppercase;
+    
+}
+
+.btn {
+    margin-bottom: 0.5rem;
+}
+
+.btn>.btn1>a {
+    text-decoration: none;
+    background-color: #ebeff2;
+    padding: 0.5rem;
+    border: 1px solid #4BB543;
+    color: black;
+    font-weight: bold;
+    
+}
+.btn>.btn2>a {
+    text-decoration: none;
+    background-color: #ebeff2;
+    padding: 0.5rem;
+    border: 1px solid #4BB543;
+    color: black;
+    font-weight: bold;
+    
+}
+
+.price {
+    margin-bottom: 0.5rem;
+}
+
+
+.totalPrice {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.items {
+    display: flex;
+    flex-shrink: 1;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+
+.btncon>a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid #4BB543;
+    padding: 0.3rem;
+}
+
+.btncheck {
+    margin: 1.3rem;
+}
+.btncheck>a {
+    background-color: #4BB543;
+    padding: 0.3rem;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.table>table {
+    width: 97.2%;
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+  }
+td {
+    text-align: center;
+  }
+
+.quantity {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.checkoutcontainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.info{
+    background-color: white;
+    padding: 2rem;
+}
+
+.above>input[type="text"],
+.above>input[type="email"]
+
+ {
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+    border: 1px solid #222;
+    padding: 0.2rem;
+    outline: none;
+    border-radius: 2px;
+}
+
+
+.a>input[type="text"] {
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+    border: 1px solid #222;
+    padding: 0.2rem;
+    outline: none;
+    border-radius: 2px;   
+}
+.b>input[type="text"] {
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+    border: 1px solid #222;
+    padding: 0.2rem;
+    outline: none;
+    border-radius: 2px;
+    margin-top: 1rem;   
+}
+
+
+.order-summary {
+    background-color: white;
+    padding: 2rem;   
+}
+
+.summary>ul>li {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    gap: 9rem;
+}
+.btncart {
+    margin-bottom: 2rem;
+}
+.btncart>a{
+    border: 1px solid #4BB543;
+    padding: 0.5rem;
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+#cart {
+    scale: 1.2;
+    transition: all 0.5s ease;
+}
+
+
+

@@ -1,0 +1,100 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <style>
+        .increaseanddecrease{
+            
+            display: flex;
+            flex-flow: row;
+            justify-content: space-evenly;
+           
+            
+        }
+        .up>a{
+            color: black;
+            
+            text-decoration: none;
+            
+        }
+        .up,.down {
+            border: 1px solid black;
+            padding: 0.4rem;
+        }
+        .down>a{
+            color: black;
+            
+            text-decoration: none;
+            
+        }
+        .card:hover {
+        scale:1.1;
+        border: 1px solid red;
+        transition: all 0.7s ease;
+    }
+    
+        
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <div class="container">
+        <div class="container my-4">
+            <div class="row m-2">
+              <div class="col bg-light">
+                    <a href="{% url 'store' %}" class="btn  btn-outline-success btn-sm my-3" tabindex="-1" role="button" >Back To Shopping</a>
+
+                    <div class="d-md-flex justify-content-evenly flex-wrap text-nowrap  p-5">
+                        <h4 class="lead text-dark">TOTAL PRODUCTS: <span class="lead">{{length}}</span>
+                            </h4>
+                        <h4 class="lead text-dark">TOTAL COST: {{order_totalPrice}}</h4>
+                    </div>
+                    <a href="{% url 'checkout' order_id=order_id customer_id=id %}" class="btn btn-outline-success btn-sm my-3">Checkout</a>
+
+              </div>
+              </div>
+              <div class="row">
+                <h1 class="display-6 text-uppercase bg-dark text-light rounded mt-3 text-center"><strong>Items In The Cart</strong></h1>
+                
+                {% for item in items %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 g-2">
+                    <div class="card p-2">
+                        <img src="{{item.product.image.url}}" class="card-img-top" alt="..." width="300px" height="300px">
+                        <div class="card-body">
+                            <h5 class="card-title "><p class="text-uppercase">{{p.name}}</p></h5>
+                            <div class="d-flex justify-content-evenly text-nowrap g-4 py-3">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a href="{% url 'increase' order_id=item.order_id product_id=item.product_id %}" role="button" class="btn btn-success">+</a>
+                                    <a href="{% url 'decrease' order_id=item.order_id product_id=item.product_id %}" role="button" class="btn btn-dark text-light">-</a>
+                                    <span class="lead mx-3">Qty:</span>
+                                    <span class="lead">{{item.quantity}}</span>
+                                  </div>
+                                 
+                                
+                            </div>
+                            <div class="d-lg-flex justify-content-evenly flex-wrap">
+                                <div class="text-nowrap"><p class="lead" style="font-size: 18px;">Price: {{item.product.price}}$</p></div>
+                                <div class="text-nowrap "><p class="lead" style="font-size: 18px;">Total Price: {{item.total}}$</p></div>
+                                
+                        </div>
+                        <a href="{% url 'delete' id=item.id %}" role="button" class="btn btn-sm btn-outline-danger mx-auto">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            
+
+                
+              </div>
+              
+                
+            </div>
+            </div>
+    </div>
+    
+
+{% endblock %}   
+
+

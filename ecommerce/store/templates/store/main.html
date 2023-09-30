@@ -1,0 +1,298 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    
+    
+    
+
+    <title>Ecommerce Website</title>
+</head>
+<body>
+    
+    <header>
+        <section class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="" id="logo">Ecom</a></li>
+                    <li><a href="{% url 'store' %}">Store</a></li>
+                </ul>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li> 
+                        <a href="{% url 'logout' %}">logout</a>
+                    </li>
+                    {% else %}
+                    <li><a href="">Login</a></li>
+                    {% endif %}
+                    <li id="cart"><a href="{% url 'cart' %}"><img  src="{% static 'images/6+cart.png' %}" alt="" width="20px" height="20px"></a>
+                        {% if not count is None %}
+                        <p id="no">{{count|default:0}}</p>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="header">
+        <a ><i class="fa-solid fa-bars"></i></a>
+        <section class="navbar2">
+           
+            <nav class="i">
+                <ul>
+                    <li><a href="" id="logo">Ecom</a></li>
+                    <li><a href="{% url 'store' %}">Store</a></li>
+                    {% if user.is_authenticated %}
+                    <li> 
+                        <a href="{% url 'logout' %}">logout</a>
+                    </li>
+                    {% else %}
+                    <li><a href="">Login</a></li>
+                    {% endif %}
+                    <li id="cart"><a href="{% url 'cart' %}"><img  src="{% static 'images/6+cart.png' %}" alt="" width="20px" height="20px"></a>
+                        {% if not count is None %}
+                        <p id="no">{{count|default:0}}</p>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+    <style>
+        .btn1:hover{
+            scale: 1.1;
+            transition: all 0.5s ease;
+        }
+        .btn2:hover{
+            scale: 1.1;
+            transition: all 0.5s ease;
+        }
+        .card:hover{
+            scale: 1.05;
+            transition: all 0.5s ease;
+        }
+        .navbar2 {
+                display: none;
+            }
+        
+        .i>ul {
+            display: flex;
+            flex-flow: column;
+            gap: 4rem;
+        }
+
+        .i>ul>li{
+            list-style: none;
+        }
+
+        .i>ul>li>a{
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .fa-bars {
+            color: white;
+            padding: 0.4rem;
+        }
+        .header {
+            display: none;
+            background-color: #222;
+            z-index: -1;
+        }
+        @media screen and (max-width: 1090px) {
+            .products {
+                
+                justify-content: space-evenly;
+                justify-content: flex-start;   
+                gap: 0.5rem;
+                
+            }
+            .card:hover {
+                scale: 1.03;
+            }
+            .card>div>img {
+                width: 280px;
+                height: 230px;
+            } 
+
+
+        }
+        @media screen and (max-width: 790px) {
+            .products {
+                
+                justify-content: space-evenly;   
+                
+                
+            }
+            .card>div>img{
+                width: 250px;
+                height: 200px;
+            }
+           
+
+
+        }
+        @media screen and (max-width: 678px) {
+            .products {
+                
+                justify-content: space-evenly;   
+                
+                
+            }
+            .card>div>img{
+                width: 200px;
+                height: 150px;
+            }
+            .btn1>a {
+                
+                font-size: 12px;
+            }
+            .btn2>a {
+                
+                font-size: 12px;
+            }
+            .price {
+                font-size: 15px;
+            }
+
+        }
+        @media screen and (max-width: 608px) {
+            .products {
+
+                justify-content: space-evenly;   
+                flex-flow: row;
+                flex-wrap: wrap
+                
+            }
+            .card>div>img{
+                width: 350px;
+                height: 300px;
+            }
+            header {
+                display: none;
+            }
+            .header {
+                display: block;
+                width: fit-content;
+            }
+            .navbar {
+                display: none;
+            }
+            .header:hover {
+                width: 100%;
+            }
+
+            .header:hover>.navbar2{
+                display: block;
+                transition: all 0.5s ease;
+                width: 100%;
+                transition: width 0.5s ease;
+            }
+            
+
+
+        }
+        @media screen and (max-width: 450px) {
+            body {
+                
+                margin: 0;
+                
+            }
+            .products {
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+                
+                
+            }
+            .card {
+                width: fit-content;
+            }
+            .card>div>img{
+                width: 300px;
+                height: 250px;
+            }
+            header {
+                width: 100%;
+            }
+
+        }
+        @media screen and (max-width: 400px) {
+            body {
+                
+                margin: 0;
+                
+            }
+            .products {
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+                
+                
+            }
+            .card {
+                width: fit-content;
+            }
+            .card>div>img{
+                width: 200px;
+                height: 150px;
+            }
+            .btn1>a {
+                
+                font-size: 12px;
+            }
+            .btn2>a {
+                
+                font-size: 12px;
+            }
+            .price {
+                font-size: 15px;
+            }
+
+        }
+    </style>
+
+
+{% block content %}
+    <main>
+        
+        <section>
+            <div class="heading"><h1>STORE</h1></div>
+            
+        </section>
+
+        <section class="products">
+            
+            {% for p in product %}
+            <div class="card">
+                <div class="img"><img src="{{ p.image.url }}" alt="{{ p.name }}" width="300px" height="250px"></div>
+                <h3>{{ p.name }}</h3>
+                <hr>
+                <div class="detail">
+                    <div class="btn">
+                        <div class="btn1"><a href="{% url 'addTocart' id=p.id %}" id="{{p.id}}" onclick="count('{{ p.id }}')">Add to cart</a></div>
+                        <div class="btn2"><a href="">View</a></div>
+                    </div>
+                    <div class="price">{{ p.price }}$</div>
+                </div>
+            </div>
+            {% endfor %}
+
+                        
+        </section>
+    </main>
+
+</body>
+</html>
+{% endblock %}

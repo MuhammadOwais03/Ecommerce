@@ -1,0 +1,112 @@
+
+
+
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    body{
+      display: flex;
+      flex-flow: column;
+      background-color: #ebefe2;
+      align-items: center;
+      
+    }
+    .container{
+      display: flex;
+      flex-flow: column;
+      flex-wrap: wrap;
+      background-color:white;
+      padding: 2rem;
+      gap: 3rem;
+      box-shadow: 1px 1px #222;
+    }
+    form {
+      display: flex;
+      flex-flow: column;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      
+    }
+    .style {
+      width: 55px;
+    }
+
+    input{
+      height: 20px;
+      letter-spacing: 0.1rem;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      border: 1px solid black;
+    }
+    input:focus{
+      outline: none;
+     
+    }
+    h1{
+      text-align: center;
+    }
+    .messages{
+      background-color: red;
+      padding: 2rem;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    li{
+      list-style: none;
+    }
+    .btn {
+      height: 50px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-color: yellow;
+      color: black;
+      border: none;
+      border-radius: 10px;
+    }
+
+    a:any-link{
+      color: #4BB543;
+    }
+  </style>
+  <div class="container">
+    <h1>LOGIN</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {% for field in login_form %}
+        <label class="style" for="{{ field.auto_id }}">{{ field.label }}</label>
+        {% if field.label == "Password" %}
+          <input type="password" name="{{ field.name }}" id="{{ field.auto_id }}">
+        {% else %}
+          <input type="text" name="{{ field.name }}" id="{{ field.auto_id }}">
+        {% endif %}
+      {% endfor %}
+      <button class="btn" type="submit">Login</button>
+    </form>
+    
+    <p class="text-center">Don't have an account? <a href="{% url 'register' %}">Create an account</a>.</p>
+  </div>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  
+</body>
+</html>
+<!--Login--> 
+
+
